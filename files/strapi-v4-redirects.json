@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "id": 4,
+            "attributes": {
+                "from": "/route",
+                "to": "/route-new",
+                "type": "permanent",
+                "createdAt": "2024-02-29T20:30:34.233Z",
+                "updatedAt": "2024-02-29T20:30:40.178Z"
+            }
+        },
+        {
+            "id": 5,
+            "attributes": {
+                "from": "/privacy-policy",
+                "to": "/privacy-policy-new",
+                "type": "permanent",
+                "createdAt": "2024-03-01T08:44:01.055Z",
+                "updatedAt": "2024-03-01T08:44:01.055Z"
+            }
+        },
+        {
+            "id": 7,
+            "attributes": {
+                "from": "/terms",
+                "to": "/terms-new",
+                "type": "permanent",
+                "createdAt": "2024-03-01T08:44:01.059Z",
+                "updatedAt": "2024-03-01T08:44:01.059Z"
+            }
+        },
+        {
+            "id": 8,
+            "attributes": {
+                "from": "/deleted-route",
+                "to": "/",
+                "type": "permanent",
+                "createdAt": "2024-03-01T08:44:01.061Z",
+                "updatedAt": "2024-03-01T08:44:01.061Z"
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 80,
+            "total": 1997
+        }
+    }
+}

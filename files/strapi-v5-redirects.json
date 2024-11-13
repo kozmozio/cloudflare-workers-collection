@@ -1,0 +1,30 @@
+{
+    "data": [
+        {
+            "from": "/terms.php",
+            "to": "/terms/",
+            "type": "permanent",
+            "id": 2
+        },
+        {
+            "from": "/privacy.php",
+            "to": "/privacy/",
+            "type": "permanent",
+            "id": 4
+        },
+        {
+            "from": "/breathepsace/",
+            "to": "/projects/breathepsace/",
+            "type": "permanent",
+            "id": 6
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "page": 1,
+            "pageSize": 25,
+            "pageCount": 1,
+            "total": 3
+        }
+    }
+}
