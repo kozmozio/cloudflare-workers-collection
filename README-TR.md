@@ -52,7 +52,7 @@ const ENABLE_CACHE = true;
 ### Bölünmüş Test İşçisi
 ```javascript
 const RATIO = 0.5; // 50/50 oran
-const URL_CONTROL = "https://inanolcer.com/";
+const URL_CONTROL = "https://kozmoz.net/";
 const URL_TEST = "https://kozmoz.io/";
 ```
 
