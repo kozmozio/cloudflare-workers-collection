@@ -20,6 +20,10 @@
 - Kapsamlı hata yönetimi ve günlük kaydı içerir
 - `redirects-worker/redirects-strapi-v5.js` konumunda
 
+#### Strapi CMS Redirects (v4)
+- Aynı v5 ile aynı işlevselliği sağlar, ancak Strapi v4 json formatıda.
+- `redirects-worker/redirects-strapi-v4.js` konumunda
+
 ### 2. Bölünmüş Test İşçisi
 - A/B testi işlevselliğini uygular
 - Çerez tabanlı kullanıcı takibi

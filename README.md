@@ -20,6 +20,10 @@ Two implementations of redirect handling:
 - Includes comprehensive error handling and logging
 - Located in `redirects-worker/redirects-strapi-v5.js`
 
+#### Strapi CMS Redirects (v4)
+- Same as v5 but for Strapi v4 json format
+- Located in `redirects-worker/redirects-strapi-v4.js`
+
 ### 2. Split Test Worker
 - Implements A/B testing functionality
 - Cookie-based user tracking
@@ -28,7 +32,6 @@ Two implementations of redirect handling:
 - Located in `split-test-worker/split-test-ab.js`
 
 ## Features
-
 - **Caching**: Configurable caching duration for optimal performance
 - **Error Handling**: Comprehensive error handling and fallbacks
 - **Logging**: Debug logging capabilities (can be enabled/disabled)
