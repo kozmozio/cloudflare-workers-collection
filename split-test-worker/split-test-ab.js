@@ -11,7 +11,7 @@
 
 const NAME = "Landing-Page-AB-Test";
 const RATIO = 0.5; // 50/50 split  control/test
-const URL_CONTROL = "https://kozmoz..net/";
+const URL_CONTROL = "https://kozmoz.net/";
 const URL_TEST = "https://kozmoz.io/";
 
 export default {
