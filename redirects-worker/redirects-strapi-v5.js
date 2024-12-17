@@ -20,10 +20,10 @@ addEventListener('fetch', event => {
 async function handleRequest(request) {
     const url = new URL(request.url);
     // console.log('Incoming request:', {
-        url: request.url,
-        hostname: url.hostname,
-        path: url.pathname
-    });
+    //     url: request.url,
+    //     hostname: url.hostname,
+    //     path: url.pathname
+    // });
 
 
     try {
