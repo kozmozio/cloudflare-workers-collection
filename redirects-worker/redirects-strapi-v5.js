@@ -19,7 +19,7 @@ addEventListener('fetch', event => {
  
 async function handleRequest(request) {
     const url = new URL(request.url);
-    console.log('Incoming request:', {
+    // console.log('Incoming request:', {
         url: request.url,
         hostname: url.hostname,
         path: url.pathname
@@ -36,7 +36,7 @@ async function handleRequest(request) {
 
 // Main handler for redirect requests
 async function handleRedirect(url, request) {
-    console.log('Handling request for:', request.url);
+    // console.log('Handling request for:', request.url);
 
     try {
         const cache = caches.default;
@@ -45,15 +45,15 @@ async function handleRedirect(url, request) {
         let path = requestUrl.pathname;
 
         // Add debug logging
-        console.log('Incoming request path:', path);
-        console.log('Request URL:', request.url);
-        console.log('Request host:', requestUrl.host);
+        // console.log('Incoming request path:', path);
+        // console.log('Request URL:', request.url);
+        // console.log('Request host:', requestUrl.host);
 
         // Normalize path: remove trailing slash if it exists
         if (path !== '/') {
             path = path.replace(/\/$/, '');
         }
-        console.log('Normalized path:', path);
+        // console.log('Normalized path:', path);
 
         let redirectsData;
 
@@ -93,7 +93,7 @@ async function handleRedirect(url, request) {
         const redirectEntry = redirectsData?.get(path);
 
         if (redirectEntry) {
-            console.log(`Found redirect entry:`, redirectEntry);
+            // console.log(`Found redirect entry:`, redirectEntry);
             try {
                 let destination = redirectEntry.to;
 
@@ -102,7 +102,7 @@ async function handleRedirect(url, request) {
                     const baseUrl = `https://${requestUrl.host}`;
                     destination = baseUrl + (destination.startsWith('/') ? destination : '/' + destination);
                 }
-                console.log(`Final destination URL: ${destination}`);
+                // console.log(`Final destination URL: ${destination}`);
 
                 const statusCode = redirectEntry.type === 'permanent' ? 301 : 302;
                 return Response.redirect(destination, statusCode);
@@ -114,7 +114,7 @@ async function handleRedirect(url, request) {
         }
 
         // If no redirect found, return 404 instead of trying to fetch
-        console.log(`No redirect found for ${path}`);
+        // console.log(`No redirect found for ${path}`);
         return fetch(request);
 
     } catch (error) {
@@ -145,8 +145,8 @@ async function fetchAllRedirects() {
             });
 
             // Log full response details for debugging
-            console.log('API Response Status:', response.status);
-            console.log('API Response Headers:', Object.fromEntries(response.headers));
+            // console.log('API Response Status:', response.status);
+            // console.log('API Response Headers:', Object.fromEntries(response.headers));
 
             if (!response.ok) {
                 const errorText = await response.text();
@@ -156,7 +156,7 @@ async function fetchAllRedirects() {
             }
 
             const data = await response.json();
-            console.log('API Response Data:', data);
+            // console.log('API Response Data:', data);
 
             if (!data || !data.data) {
                 console.error('Invalid API response structure:', data);
@@ -167,12 +167,12 @@ async function fetchAllRedirects() {
 
             // Check if pagination info exists
             if (!data.meta?.pagination?.pageCount) {
-                console.log('No pagination info found, assuming single page');
+                // console.log('No pagination info found, assuming single page');
                 break;
             }
 
             const { pageCount } = data.meta.pagination;
-            console.log(`Fetched page ${page} of ${pageCount}`);
+            // console.log(`Fetched page ${page} of ${pageCount}`);
 
             if (page >= pageCount) break;
 
@@ -196,7 +196,7 @@ function processRedirectsData(entries, redirectsMap) {
 
     entries.forEach(entry => {
         if (!entry || !entry.from || !entry.to) {
-            console.log('Skipping invalid entry:', entry);
+            // console.log('Skipping invalid entry:', entry);
             return;
         }
 
@@ -215,6 +215,6 @@ function processRedirectsData(entries, redirectsMap) {
             to: entry.to,
             type: entry.type || 'temporary'
         });
-        console.log(`Added redirect: ${fromPath} -> ${entry.to}`);
+        // console.log(`Added redirect: ${fromPath} -> ${entry.to}`);
     });
 }
