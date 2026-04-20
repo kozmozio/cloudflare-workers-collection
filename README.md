@@ -31,6 +31,17 @@ Two implementations of redirect handling:
 - Simple redirect-based testing
 - Located in `split-test-worker/split-test-ab.js`
 
+### 3. AI Bot Markdown Worker
+- Serves a clean Markdown version of pages to AI crawlers / LLM bots
+- Detects requests via `Accept: text/markdown` header or known AI bot user-agents
+  (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot,
+  Bytespider, Amazonbot, Meta-ExternalAgent, and more)
+- First tries `${path}.md` at the origin, then falls back to an inline
+  HTML → Markdown conversion (title, headings, lists, links, images, code,
+  blockquotes) with non-content regions (nav/header/footer/script/style) stripped
+- Caches generated markdown in the Workers Cache
+- Located in `ai-bot-worker/ai-bot-md.js`
+
 ## Features
 - **Caching**: Configurable caching duration for optimal performance
 - **Error Handling**: Comprehensive error handling and fallbacks
@@ -53,6 +64,13 @@ const ENABLE_CACHE = true;
 const RATIO = 0.5; // 50/50 split
 const URL_CONTROL = "https://kozmoz.net/";
 const URL_TEST = "https://kozmoz.io/";
+```
+
+### AI Bot Markdown Worker
+```javascript
+const CACHE_DURATION = 3600; // 1 hour
+const ENABLE_CACHE = true;
+// AI_BOT_UA_PATTERN – extend with any additional bot user-agents you want to match
 ```
 
 ## Cloudflare Setup
